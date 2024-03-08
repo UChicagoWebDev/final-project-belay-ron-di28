@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .channel-content > * {
+    /* Full width for narrow screens */
+    width: 100%;
+  }
+}
+
+.app, .channel-content {
+  display: flex;
+  height: 100vh; /* Use vh for full viewport height */
+  width: 100%; /* Ensure full width */
+}
+
+.channel-list {
+  flex: 0 0 250px; /* 250px is an example width; adjust as needed */
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+  background-color: #333; /* Example background color */
+  color: white;
+  padding: 10px;
+}
+
+.message-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+}
+
+.reply-list {
+  flex: 0 0 350px; /* Adjust width as necessary */
+  overflow-y: auto;
+  background-color: #f5f5f5;
+}
+
+.channel-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.channel-item:hover {
+  background-color: grey; /* Subtle hover effect */
+}
+
+.channel-item.active {
+  background-color: #555; /* Highlight the active channel */
+}
+
+
+/* Additional styling for better visibility */
+.channel-list div, .message-list div, .reply-list div {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+
+.channel-header, .message-header, .reply-header {
+  font-size: 16px;
+  color: white;
+  padding: 5px 0;
+}
+
+/* Adjustments for the reply list to match the theme */
+.reply-list .reply-header {
+  color: black; /* Ensure readability against the reply list's background */
+}
+
+
+.message-item {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid #eee; /* Visual separation of messages */
+}
+
+.message-item:hover {
+  background-color: #f9f9f9; /* Light background color on hover */
+}
+
+.message-actions {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: none;
+}
+
+.message-item:hover .message-actions {
+  display: block; /* Show action buttons on hover */
+}
+
+.message-actions button {
+  margin-left: 5px;
+}
+
+
+.reaction-menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  margin-top: 5px; /* Adjust as needed */
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.reaction-menu button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+.reactions {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.reaction {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.reaction:hover::after {
+  content: attr(title); /* Show user names on hover */
+  position: absolute;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  padding: 5px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px; /* Adjust padding as needed */
+  font-size: 1rem; /* Adjust size as needed */
+}
